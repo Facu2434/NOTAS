@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de Tutoriales - Aprende BA</title>
+<style>
+    :root {
+        --bg-color: #f4f6f9;
+        --dark-blue: #112a36;
+        --mint-green: #87dac1;
+        --text-color: #333333;
+        --border-color: #e0e0e0;
+    }
+
+    body { 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+        margin: 0; 
+        padding: 40px 20px; 
+        background: var(--bg-color); 
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+    }
+    
+    .menu-container { 
+        max-width: 650px; 
+        width: 100%;
+        background: white; 
+        border-radius: 12px; 
+        border: 1px solid var(--border-color); 
+        padding: 40px; 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    
+    h1 { 
+        color: var(--dark-blue); 
+        margin-top: 0; 
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+    
+    .links-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .card-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 25px;
+        background: #fff;
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--dark-blue);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .card-link:hover {
+        border-color: var(--mint-green);
+        background: #f8fcfb;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    
+    .card-text {
+        text-align: left;
+    }
+    
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+    }
+    
+    .card-desc {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+    
+    .arrow-icon {
+        font-size: 24px;
+        color: var(--dark-blue);
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+    
+    .card-link:hover .arrow-icon {
+        transform: translateX(5px);
+        color: #55bfa3;
+    }
+
+    .footer {
+        margin-top: 40px;
+        font-size: 13px;
+        color: #888;
+    }
+</style>
+</head>
+<body>
+
+<div class="menu-container">
+    <h1>Tutoriales Docentes</h1>
+    <p class="subtitle">Plataforma Institucional Aprende BA</p>
+    
+    <div class="links-grid">
+        <a href="notas.html" class="card-link">
+            <div class="card-text">
+                <div class="card-title">1. Carga de Calificaciones</div>
+                <div class="card-desc">Guía paso a paso para el volcado de notas y uso de las planillas de Drive.</div>
+            </div>
+            <div class="arrow-icon">→</div>
+        </a>
+        
+        <a href="roles.html" class="card-link">
+            <div class="card-text">
+                <div class="card-title">2. Gestión de Roles</div>
+                <div class="card-desc">Instrucciones para solicitar perfiles y agregar múltiples niveles en el sistema.</div>
+            </div>
+            <div class="arrow-icon">→</div>
+        </a>
+    </div>
+
+    <div class="footer">
+        Escuela de Comercio N° 03 DE 07 Hipólito Vieytes
+    </div>
+</div>
+
+</body>
+</html>

@@ -37,16 +37,21 @@
         text-align: center;
     }
     
+    .logo-top {
+        max-width: 220px;
+        height: auto;
+        margin-bottom: 25px;
+    }
+
     h1 { 
         color: var(--dark-blue); 
-        margin-top: 0; 
-        font-size: 28px;
-        margin-bottom: 10px;
+        margin: 0 0 5px 0; 
+        font-size: 26px;
     }
 
     .subtitle {
         color: #666;
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 35px;
     }
     
@@ -104,18 +109,34 @@
         color: #55bfa3;
     }
 
-    .footer {
+    .footer-container {
         margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .school-text {
         font-size: 13px;
-        color: #888;
+        color: #777;
+        font-weight: 500;
+    }
+
+    .logo-bottom {
+        max-width: 140px;
+        height: auto;
+        opacity: 0.9;
     }
 </style>
 </head>
 <body>
 
 <div class="menu-container">
+    <img src="logoaprende.png" alt="Logo Aprende BA" class="logo-top">
+    
     <h1>Tutoriales Docentes</h1>
-    <p class="subtitle">Plataforma Institucional Aprende BA</p>
+    <p class="subtitle">Guías Prácticas de Gestión Administrativa</p>
     
     <div class="links-grid">
         <a href="notas.html" class="card-link">
@@ -135,8 +156,9 @@
         </a>
     </div>
 
-    <div class="footer">
-        Escuela de Comercio N° 03 DE 07 Hipólito Vieytes
+    <div class="footer-container">
+        <div class="school-text">Escuela de Comercio N° 03 DE 07 Hipólito Vieytes</div>
+        <img src="logoba.png" alt="Logo Buenos Aires Ciudad" class="logo-bottom">
     </div>
 </div>
 

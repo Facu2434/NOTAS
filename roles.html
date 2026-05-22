@@ -94,14 +94,23 @@
     }
     
     button:hover:not(:disabled) { 
-        background: var(--mint-green); 
-        color: var(--dark-blue);
+        background: #0d212b;
     }
     
     button:disabled { 
         background: #e9ecef; 
         color: #adb5bd; 
         cursor: not-allowed; 
+    }
+
+    .btn-exit {
+        background: transparent;
+        border: 2px solid var(--dark-blue);
+        color: var(--dark-blue);
+    }
+
+    .btn-exit:hover {
+        background: #f0f4f6;
     }
     
     #counter { 
@@ -184,6 +193,7 @@
 
     <div class="controls">
         <button id="prevBtn" onclick="cambiarSlide(-1)" disabled>Anterior</button>
+        <button class="btn-exit" onclick="location.href='index.html'">Inicio</button>
         <span id="counter">1 / 6</span>
         <button id="nextBtn" onclick="cambiarSlide(1)">Siguiente</button>
     </div>

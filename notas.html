@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial Gestión de Roles - Aprende BA</title>
+<style>
+    :root {
+        --bg-color: #f4f6f9;
+        --dark-blue: #112a36;
+        --mint-green: #87dac1;
+        --text-color: #333333;
+        --border-color: #e0e0e0;
+    }
+
+    body { 
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+        margin: 0; 
+        padding: 30px 20px; 
+        background: var(--bg-color); 
+        color: var(--text-color);
+    }
+    
+    .slider-container { 
+        max-width: 850px; 
+        margin: 0 auto; 
+        background: white; 
+        border-radius: 10px; 
+        border: 1px solid var(--border-color); 
+        padding: 40px; 
+        min-height: 400px; 
+        position: relative; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    
+    .slide { display: none; height: 100%; }
+    .slide.active { display: block; animation: fadeIn 0.3s ease-in-out; } 
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    h2 { 
+        color: var(--dark-blue); 
+        border-bottom: 3px solid var(--mint-green); 
+        padding-bottom: 12px; 
+        margin-top: 0; 
+        font-size: 24px;
+    }
+    
+    p, li { font-size: 17px; line-height: 1.6; }
+    
+    .info-box { 
+        background: #f8fcfb; 
+        padding: 16px 20px; 
+        border-left: 5px solid var(--mint-green); 
+        border-radius: 4px;
+        margin-top: 20px; 
+        border-top: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .info-box strong { color: var(--dark-blue); }
+    
+    .img-container { text-align: center; margin-top: 25px; }
+    img { 
+        max-width: 100%; 
+        height: auto; 
+        border: 1px solid var(--border-color); 
+        border-radius: 6px; 
+    }
+
+    .controls { 
+        margin-top: 40px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-top: 1px solid var(--border-color); 
+        padding-top: 20px; 
+    }
+    
+    button { 
+        padding: 10px 24px; 
+        font-size: 16px; 
+        font-weight: bold;
+        cursor: pointer; 
+        border: none; 
+        background: var(--dark-blue); 
+        color: white; 
+        border-radius: 6px; 
+        transition: background 0.2s;
+    }
+    
+    button:hover:not(:disabled) { 
+        background: var(--mint-green); 
+        color: var(--dark-blue);
+    }
+    
+    button:disabled { 
+        background: #e9ecef; 
+        color: #adb5bd; 
+        cursor: not-allowed; 
+    }
+    
+    #counter { 
+        font-weight: 600; 
+        color: var(--dark-blue); 
+        background: var(--mint-green);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    @media print {
+        body { background: white; padding: 0; }
+        .slider-container { border: none; box-shadow: none; max-width: 100%; padding: 0; min-height: auto; }
+        .controls { display: none; }
+        .slide { display: block !important; page-break-after: always; padding-top: 20px; }
+        .slide:last-child { page-break-after: auto; }
+    }
+</style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slide active">
+        <h2>1. Identificar los Niveles</h2>
+        <p>Para una correcta carga de calificaciones y visualización del listado de alumnos, es necesario solicitar los roles para los niveles que figuran en su planilla.</p>
+        <p>Revise la columna <strong>"Sección en Aprende BA"</strong> para conocer los niveles en los que están registrados sus alumnos.</p>
+        <div class="img-container">
+            <img src="notas1.png" alt="Planilla mostrando la columna Sección en Aprende BA">
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>2. Solicitar Rol (Paso 1)</h2>
+        <p>Ingrese a la plataforma Aprende BA.</p>
+        <p>En el menú lateral, diríjase a la sección <strong>Mis Roles</strong> y haga clic en el botón <strong>Solicitar rol</strong>.</p>
+        <div class="img-container">
+            <img src="notas2.png" alt="Botón de Solicitar rol en la plataforma">
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>3. Seleccionar Tipo de Rol (Paso 2)</h2>
+        <p>En la pantalla de opciones de roles disponibles, seleccione la opción <strong>Docente</strong>.</p>
+        <p>Luego haga clic en <strong>Continuar</strong>.</p>
+        <div class="img-container">
+            <img src="notas3.png" alt="Selección de la opción Docente">
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>4. Seleccionar Establecimiento (Paso 3)</h2>
+        <p>Busque y seleccione el establecimiento correspondiente a sus horas.</p>
+        <p>Ejemplo: Filtre por <strong>Distrito Escolar #7</strong> y seleccione <strong>Esc. de Comercio N° 03 DE 07 Hipólito Vieytes</strong>. Presione Continuar.</p>
+        <div class="img-container">
+            <img src="notas4.png" alt="Selección del establecimiento escolar">
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>5. Detalles del Rol y Múltiples Niveles (Paso 4)</h2>
+        <div class="info-box">
+            <p><strong>IMPORTANTE:</strong></p>
+            <p>Si tiene alumnos de distintos niveles en la misma materia (por ejemplo, 4 niveles), <strong>debe pedir el rol para cada uno de esos niveles</strong> agregando los espacios curriculares uno por uno.</p>
+        </div>
+        <p>Seleccione el Año, Sección y Espacio curricular, y haga clic en "Agregar espacio curricular" hasta completar todos los niveles necesarios.</p>
+        <div class="img-container">
+            <img src="notas5.png" alt="Pantalla de detalles de rol agregando varios niveles">
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>6. Uso de la guía "Aprende BA"</h2>
+        <p>Recuerde que la hoja "Aprende BA" de su Drive es una guía visual clave.</p>
+        <p>Al elegir el nivel y el bimestre en el menú desplegable, la lista se actualizará para mostrarle exactamente cómo cargar a esos alumnos específicos en la plataforma oficial.</p>
+        <div class="img-container">
+            <img src="notas6.png" alt="Desplegable de niveles en la hoja Aprende BA">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="cambiarSlide(-1)" disabled>Anterior</button>
+        <span id="counter">1 / 6</span>
+        <button id="nextBtn" onclick="cambiarSlide(1)">Siguiente</button>
+    </div>
+</div>
+
+<script>
+    let slideActual = 0;
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counter = document.getElementById('counter');
+
+    function actualizarControles() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if(index === slideActual) slide.classList.add('active');
+        });
+        prevBtn.disabled = slideActual === 0;
+        nextBtn.disabled = slideActual === slides.length - 1;
+        counter.innerText = (slideActual + 1) + " / " + slides.length;
+    }
+
+    function cambiarSlide(direccion) {
+        slideActual += direccion;
+        if (slideActual < 0) slideActual = 0;
+        if (slideActual >= slides.length) slideActual = slides.length - 1;
+        actualizarControles();
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') cambiarSlide(1);
+        if (e.key === 'ArrowLeft') cambiarSlide(-1);
+    });
+</script>
+</body>
+</html>

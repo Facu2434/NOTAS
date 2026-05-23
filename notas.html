@@ -1,3 +1,8 @@
+Acá tenés el código completo de notas.html con el cartel de advertencia agregado a la diapositiva 8.
+
+Diseñé un contenedor específico (.danger-box) con fondo rojizo suave, borde izquierdo grueso e incluí un triángulo de advertencia mediante un vector (SVG) para garantizar que se vea perfectamente en alta resolución y funcione de manera 100% offline, sin depender de imágenes externas ni librerías de iconos.
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -93,6 +98,23 @@
     }
     
     .info-box strong { color: var(--dark-blue); }
+
+    /* Estilo del cartel de advertencia urgente */
+    .danger-box {
+        background: #fdf2f2; 
+        padding: 18px 20px; 
+        border-left: 5px solid #e74c3c; 
+        border-radius: 4px;
+        margin-top: 20px; 
+        border-top: 1px solid #f5c6cb;
+        border-right: 1px solid #f5c6cb;
+        border-bottom: 1px solid #f5c6cb;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .danger-box strong { color: #c0392b; }
     
     .img-container { text-align: center; margin-top: 25px; }
     img { 
@@ -175,7 +197,7 @@
                 <li><strong>2° y 4° Bimestre:</strong> Se califica con <strong>nota numérica del 1 al 10</strong>.</li>
             </ul>
             <p style="margin-top: 15px; border-top: 1px dotted var(--border-color); padding-top: 10px;">
-                <strong>Importante:</strong> Todos los alumnos deben estar cargados con nota para que se generen correctamente los datos en la hoja "Aprende BA" detallada en el siguiente paso.
+                <strong>Importante:</strong> Todos los alumnos deben estar cargados con nota para que se generen correctamente los datos en la hoja "Aprende BA" detallada del siguiente paso.
             </p>
         </div>
         <div class="img-container">
@@ -238,6 +260,15 @@
             <p><strong>IMPORTANTE:</strong></p>
             <p>Cargue exclusivamente las notas de los alumnos que figuran en su planilla de Drive.</p>
             <p><strong>No asigne notas a alumnos que no le correspondan.</strong> Utilice siempre la hoja "Aprende BA" de su Drive como referencia para evitar errores de cruce de datos.</p>
+        </div>
+        
+        <div class="danger-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="min-width: 24px; margin-top: 2px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+                <p style="margin: 0; font-size: 16px; line-height: 1.5;">
+                    <strong>¡IMPORTANTE!:</strong> En caso de calificar por error a un alumno que no corresponde, poner <strong>NO</strong> en PPi y elegir el <strong>Guión</strong> del menú desplegable de notas para permitir el guardado y cierre de la planilla.
+                </p>
+            </div>
         </div>
     </div>
 

@@ -94,7 +94,7 @@
     
     .info-box strong { color: var(--dark-blue); }
 
-    /* Estilo del cartel de advertencia urgente */
+    /* Estilo del cartel de advertencia urgente unificado */
     .danger-box {
         background: #fdf2f2; 
         padding: 18px 20px; 
@@ -105,13 +105,14 @@
         border-right: 1px solid #f5c6cb;
         border-bottom: 1px solid #f5c6cb;
         display: flex;
-        align-items: flex-start;
+        flex-direction: column; /* Cambiado a columna para apilar SVG, Imagen y Texto */
+        align-items: center; /* Centrar todo el contenido */
         gap: 15px;
     }
 
     .danger-box strong { color: #c0392b; }
     
-    .img-container { text-align: center; margin-top: 25px; }
+    .img-container { text-align: center; margin-top: 25px; width: 100%;}
     img { 
         max-width: 100%; 
         height: auto; 
@@ -251,17 +252,23 @@
 
     <div class="slide">
         <h2>8. Carga Final de Notas</h2>
-        <div class="info-box">
-            <p><strong>IMPORTANTE:</strong></p>
-            <p>Cargue exclusivamente las notas de los alumnos que figuran en su planilla de Drive.</p>
-            <p><strong>No asigne notas a alumnos que no le correspondan.</strong> Utilice siempre la hoja "Aprende BA" de su Drive como referencia para evitar errores de cruce de datos.</p>
-        </div>
         
         <div class="danger-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="min-width: 24px; margin-top: 2px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <div>
-                <p style="margin: 0; font-size: 16px; line-height: 1.5;">
-                    <strong>¡IMPORTANTE!:</strong> En caso de calificar por error a un alumno que no corresponde, poner <strong>NO</strong> en PPI y elegir el <strong>Guión</strong> del menú desplegable de notas para permitir el guardado y cierre de la planilla.
+            <div style="display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f5c6cb; padding-bottom: 10px; width: 100%; justify-content: center;">
+                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <h3 style="color: #e74c3c; margin: 0; font-size: 22px;">¡MUY IMPORTANTE!: Lea antes de confirmar</h3>
+            </div>
+
+            <div class="img-container" style="margin-top: 10px;">
+                <img src="error.png" alt="Ejemplo de error en carga de notas">
+            </div>
+
+            <div style="width: 100%; padding: 0 10px;">
+                <p style="font-size: 17px; line-height: 1.6; color: #333; margin-bottom: 15px;">
+                    Cargue exclusivamente las notas de los alumnos que figuran en su planilla de Drive y <strong>no asigne notas a alumnos que no le correspondan</strong>. Utilice siempre la hoja "Aprende BA" como referencia.
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; color: #721c24; background: #f8d7da; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin: 0;">
+                    En caso de calificar por error a un alumno que no corresponde, poner <strong>NO</strong> en <strong>PPI</strong> y elegir el <strong>Guión</strong> del menú desplegable de notas para permitir el guardado y cierre de la planilla.
                 </p>
             </div>
         </div>

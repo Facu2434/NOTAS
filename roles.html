@@ -142,12 +142,42 @@
         font-size: 14px;
     }
 
+    a { color: #1f7a63; font-weight: 600; }
+    .img-container img { cursor: zoom-in; }
+    .img-hint { font-size: 13px; color: #888; margin: 6px 0 0 0; }
+
+    /* Ampliación de imágenes */
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        z-index: 100;
+        overflow: auto;
+        padding: 20px;
+        box-sizing: border-box;
+        cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; align-items: center; justify-content: center; }
+    .lightbox img { max-width: none; max-height: none; width: auto; border: none; background: white; }
+    @media (max-width: 1000px) {
+        .lightbox img { max-width: 200%; }
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 10px; }
+        .slider-container { padding: 25px 18px; }
+        h2 { font-size: 20px; }
+        p, li { font-size: 16px; }
+        button { padding: 10px 16px; }
+    }
+
     @media print {
         body { background: white; padding: 0; }
         .slider-container { border: none; box-shadow: none; max-width: 100%; padding: 0; min-height: auto; }
-        .controls, .close-button { display: none; }
+        .controls, .close-button, .img-hint, .lightbox { display: none !important; }
         .slide { display: block !important; page-break-after: always; padding-top: 20px; }
-        .slide:last-child { page-break-after: auto; }
+        .slide:last-of-type { page-break-after: auto; }
     }
 </style>
 </head>
@@ -159,18 +189,20 @@
     <div class="slide active">
         <h2>1. Identificar los Niveles</h2>
         <p>Para una correcta carga de calificaciones y visualización del listado de alumnos, es necesario solicitar los roles para los niveles que figuran en su planilla.</p>
-        <p>Revise la columna <strong>"Sección en Aprende BA"</strong> para conocer los niveles en los que están registrados sus alumnos.</p>
+        <p>Revise la columna <strong>"Sección en AprendeBA"</strong> de la pestaña "Hoja 1" para conocer los niveles en los que están registrados sus alumnos.</p>
         <div class="img-container">
             <img src="notas1.png" alt="Planilla mostrando la columna Sección en Aprende BA">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
         <h2>2. Solicitar Rol (Paso 1)</h2>
-        <p>Ingrese a la plataforma Aprende BA.</p>
+        <p>Ingrese a la plataforma Aprende BA (miEscuela).</p>
         <p>En el menú lateral, diríjase a la sección <strong>Mis Roles</strong> y haga clic en el botón <strong>Solicitar rol</strong>.</p>
         <div class="img-container">
             <img src="notas2.png" alt="Botón de Solicitar rol en la plataforma">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
@@ -180,6 +212,7 @@
         <p>Luego haga clic en <strong>Continuar</strong>.</p>
         <div class="img-container">
             <img src="notas3.png" alt="Selección de la opción Docente">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
@@ -189,6 +222,7 @@
         <p>Ejemplo: Filtre por <strong>Distrito Escolar #7</strong> y seleccione <strong>Esc. de Comercio N° 03 DE 07 Hipólito Vieytes</strong>. Presione Continuar.</p>
         <div class="img-container">
             <img src="notas4.png" alt="Selección del establecimiento escolar">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
@@ -201,15 +235,17 @@
         <p>Seleccione el Año, Sección y Espacio curricular, y haga clic en "Agregar espacio curricular" hasta completar todos los niveles necesarios.</p>
         <div class="img-container">
             <img src="notas5.png" alt="Pantalla de detalles de rol agregando varios niveles">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>6. Uso de la guía "Aprende BA"</h2>
-        <p>Recuerde que la hoja "Aprende BA" de su Drive es una guía visual clave.</p>
+        <h2>6. Uso de la pestaña "AprendeBA"</h2>
+        <p>Recuerde que la pestaña "AprendeBA" de su planilla de Drive es una guía visual clave.</p>
         <p>Al elegir el nivel y el bimestre en el menú desplegable, la lista se actualizará para mostrarle exactamente cómo cargar a esos alumnos específicos en la plataforma oficial.</p>
         <div class="img-container">
-            <img src="notas6.png" alt="Desplegable de niveles en la hoja Aprende BA">
+            <img src="notas6.png" alt="Desplegable de niveles en la pestaña AprendeBA">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
@@ -220,34 +256,75 @@
     </div>
 </div>
 
+<div class="lightbox" id="lightbox" title="Cerrar">
+    <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
     let slideActual = 0;
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const counter = document.getElementById('counter');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
 
     function actualizarControles() {
         slides.forEach((slide, index) => {
             slide.classList.remove('active');
-            if(index === slideActual) slide.classList.add('active');
+            if (index === slideActual) slide.classList.add('active');
         });
         prevBtn.disabled = slideActual === 0;
         nextBtn.disabled = slideActual === slides.length - 1;
         counter.innerText = (slideActual + 1) + " / " + slides.length;
+        window.scrollTo(0, 0);
     }
 
     function cambiarSlide(direccion) {
-        slideActual += direccion;
-        if (slideActual < 0) slideActual = 0;
-        if (slideActual >= slides.length) slideActual = slides.length - 1;
+        irASlide(slideActual + direccion);
+    }
+
+    function irASlide(indice) {
+        slideActual = Math.max(0, Math.min(slides.length - 1, indice));
         actualizarControles();
     }
 
+    // Ampliar imágenes
+    document.querySelectorAll('.img-container img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+    lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+    // Teclado
     document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('open')) {
+            if (e.key === 'Escape') lightbox.classList.remove('open');
+            return;
+        }
         if (e.key === 'ArrowRight') cambiarSlide(1);
         if (e.key === 'ArrowLeft') cambiarSlide(-1);
     });
+
+    // Deslizar en celulares
+    let toqueX = null, toqueY = null;
+    document.addEventListener('touchstart', (e) => {
+        if (lightbox.classList.contains('open') || e.touches.length !== 1) { toqueX = null; return; }
+        toqueX = e.touches[0].clientX;
+        toqueY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+        if (toqueX === null) return;
+        const dx = e.changedTouches[0].clientX - toqueX;
+        const dy = e.changedTouches[0].clientY - toqueY;
+        toqueX = null;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            cambiarSlide(dx < 0 ? 1 : -1);
+        }
+    }, { passive: true });
 </script>
 </body>
 </html>

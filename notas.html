@@ -13,23 +13,23 @@
         --border-color: #e0e0e0;
     }
 
-    body { 
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
-        margin: 0; 
-        padding: 30px 20px; 
-        background: var(--bg-color); 
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        margin: 0;
+        padding: 30px 20px;
+        background: var(--bg-color);
         color: var(--text-color);
     }
-    
-    .slider-container { 
-        max-width: 850px; 
-        margin: 0 auto; 
-        background: white; 
-        border-radius: 10px; 
-        border: 1px solid var(--border-color); 
-        padding: 40px; 
-        min-height: 400px; 
-        position: relative; 
+
+    .slider-container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        padding: 40px;
+        min-height: 400px;
+        position: relative;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
@@ -52,7 +52,7 @@
         transition: background-color 0.2s, transform 0.1s;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    
+
     .close-button:hover {
         background-color: #c0392b;
         transform: scale(1.05);
@@ -61,111 +61,173 @@
     .close-button:active {
         transform: scale(0.95);
     }
-    
+
     .slide { display: none; height: 100%; }
-    .slide.active { display: block; animation: fadeIn 0.3s ease-in-out; } 
-    
+    .slide.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(5px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    
-    h2 { 
-        color: var(--dark-blue); 
-        border-bottom: 3px solid var(--mint-green); 
-        padding-bottom: 12px; 
-        margin-top: 0; 
+
+    h2 {
+        color: var(--dark-blue);
+        border-bottom: 3px solid var(--mint-green);
+        padding-bottom: 12px;
+        margin-top: 0;
         font-size: 24px;
         margin-right: 40px;
     }
-    
+
     p, li { font-size: 17px; line-height: 1.6; }
-    
-    .info-box { 
-        background: #f8fcfb; 
-        padding: 16px 20px; 
-        border-left: 5px solid var(--mint-green); 
+
+    a { color: #1f7a63; font-weight: 600; }
+
+    .info-box {
+        background: #f8fcfb;
+        padding: 16px 20px;
+        border-left: 5px solid var(--mint-green);
         border-radius: 4px;
-        margin-top: 20px; 
+        margin-top: 20px;
         border-top: 1px solid var(--border-color);
         border-right: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
     }
-    
+
     .info-box strong { color: var(--dark-blue); }
 
-    /* Estilo del cartel de advertencia urgente unificado */
     .danger-box {
-        background: #fdf2f2; 
-        padding: 18px 20px; 
-        border-left: 5px solid #e74c3c; 
+        background: #fdf2f2;
+        padding: 18px 20px;
+        border-left: 5px solid #e74c3c;
         border-radius: 4px;
-        margin-top: 20px; 
+        margin-top: 20px;
         border-top: 1px solid #f5c6cb;
         border-right: 1px solid #f5c6cb;
         border-bottom: 1px solid #f5c6cb;
         display: flex;
-        flex-direction: column; /* Cambiado a columna para apilar SVG, Imagen y Texto */
-        align-items: center; /* Centrar todo el contenido */
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
     }
 
     .danger-box strong { color: #c0392b; }
-    
-    .img-container { text-align: center; margin-top: 25px; width: 100%;}
-    img { 
-        max-width: 100%; 
-        height: auto; 
-        border: 1px solid var(--border-color); 
-        border-radius: 6px; 
+
+    .danger-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 2px solid #f5c6cb;
+        padding-bottom: 10px;
+        width: 100%;
+        justify-content: center;
     }
 
-    .controls { 
-        margin-top: 40px; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        border-top: 1px solid var(--border-color); 
-        padding-top: 20px; 
+    .danger-title h3 { color: #e74c3c; margin: 0; font-size: 22px; text-align: center; }
+
+    .danger-note {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #721c24;
+        background: #f8d7da;
+        padding: 15px;
+        border-radius: 4px;
+        border: 1px solid #f5c6cb;
+        margin: 0;
     }
-    
-    button { 
-        padding: 10px 24px; 
-        font-size: 16px; 
+
+    .marca {
+        display: inline-block;
+        padding: 1px 8px;
+        border-radius: 4px;
         font-weight: bold;
-        cursor: pointer; 
-        border: none; 
-        background: var(--dark-blue); 
-        color: white; 
-        border-radius: 6px; 
+        font-size: 15px;
+    }
+    .marca-verde { background: #b6d7a8; color: #274e13; }
+    .marca-gris { background: #eeeeee; color: #888888; }
+
+    .img-container { text-align: center; margin-top: 25px; width: 100%; }
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+    }
+    .img-container img { cursor: zoom-in; }
+    .img-hint { font-size: 13px; color: #888; margin: 6px 0 0 0; }
+
+    .controls {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+
+    button {
+        padding: 10px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        background: var(--dark-blue);
+        color: white;
+        border-radius: 6px;
         transition: background 0.2s;
     }
-    
-    button:hover:not(:disabled) { 
+
+    button:hover:not(:disabled) {
         background: #0d212b;
     }
-    
-    button:disabled { 
-        background: #e9ecef; 
-        color: #adb5bd; 
-        cursor: not-allowed; 
+
+    button:disabled {
+        background: #e9ecef;
+        color: #adb5bd;
+        cursor: not-allowed;
     }
-    
-    #counter { 
-        font-weight: 600; 
-        color: var(--dark-blue); 
+
+    #counter {
+        font-weight: 600;
+        color: var(--dark-blue);
         background: var(--mint-green);
         padding: 5px 15px;
         border-radius: 20px;
         font-size: 14px;
     }
 
+    /* Ampliación de imágenes */
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        z-index: 100;
+        overflow: auto;
+        padding: 20px;
+        box-sizing: border-box;
+        cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; align-items: center; justify-content: center; }
+    .lightbox img { max-width: none; max-height: none; width: auto; border: none; background: white; }
+    @media (max-width: 1000px) {
+        .lightbox img { max-width: 200%; }
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 10px; }
+        .slider-container { padding: 25px 18px; }
+        h2 { font-size: 20px; }
+        p, li { font-size: 16px; }
+        button { padding: 10px 16px; }
+    }
+
     @media print {
         body { background: white; padding: 0; }
         .slider-container { border: none; box-shadow: none; max-width: 100%; padding: 0; min-height: auto; }
-        .controls, .close-button { display: none; }
+        .controls, .close-button, .img-hint, .lightbox { display: none !important; }
         .slide { display: block !important; page-break-after: always; padding-top: 20px; }
-        .slide:last-child { page-break-after: auto; }
+        .slide:last-of-type { page-break-after: auto; }
     }
 </style>
 </head>
@@ -175,17 +237,31 @@
     <a href="index.html" class="close-button" title="Cerrar tutorial">X</a>
 
     <div class="slide active">
-        <h2>1. Abrir el enlace</h2>
-        <p>Abrir el enlace a la planilla enviado por correo electrónico.</p>
+        <h2>1. Antes de empezar</h2>
+        <p>La carga de notas se hace en <strong>dos lugares</strong>, y los dos son necesarios:</p>
+        <ul>
+            <li>La <strong>planilla de Drive</strong> (enviada por correo).</li>
+            <li>La <strong>plataforma Aprende BA (miEscuela)</strong>.</li>
+        </ul>
+        <div class="info-box">
+            <p><strong>Importante:</strong> completar la planilla de Drive <strong>NO</strong> carga las notas en la plataforma Aprende BA. La carga en la plataforma es manual. La planilla es una guía para hacerla sin errores.</p>
+        </div>
+        <p>Para cargar notas en la plataforma necesita tener los roles correspondientes. Si todavía no los tiene, siga primero el tutorial <a href="roles.html">Gestión de Roles</a>.</p>
+    </div>
+
+    <div class="slide">
+        <h2>2. Abrir el enlace</h2>
+        <p>Abra el enlace a la planilla enviado por correo electrónico.</p>
         <p>Busque el asunto: <strong>LINK PLANILLA NOTAS</strong></p>
         <div class="img-container">
             <img src="paso1.png" alt="Correo electrónico con el link de la planilla">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>2. Completar la "Hoja1"</h2>
-        <p>Completar las calificaciones en la pestaña "Hoja1" según corresponda al período del año.</p>
+        <h2>3. Completar la pestaña "Hoja 1"</h2>
+        <p>Complete las calificaciones en la pestaña <strong>"Hoja 1"</strong> según corresponda al período del año.</p>
         <div class="info-box">
             <p><strong>ATENCIÓN: Lógica de carga según bimestre</strong></p>
             <ul>
@@ -193,92 +269,131 @@
                 <li><strong>2° y 4° Bimestre:</strong> Se califica con <strong>nota numérica del 1 al 10</strong>.</li>
             </ul>
             <p style="margin-top: 15px; border-top: 1px dotted var(--border-color); padding-top: 10px;">
-                <strong>Importante:</strong> Todos los alumnos deben estar cargados con nota para que se generen correctamente los datos en la hoja "Aprende BA" detallada del siguiente paso.
+                <strong>Importante:</strong> Todos los alumnos deben estar cargados con nota para que se generen correctamente los datos en la pestaña "AprendeBA".
             </p>
         </div>
         <div class="img-container">
-            <img src="paso2.png" alt="Vista de la Hoja 1 en la planilla">
+            <img src="paso2.png" alt="Vista de la pestaña Hoja 1 en la planilla">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>3. Revisar "Aprende BA"</h2>
-        <p>En la hoja "Aprende BA" las notas aparecen automáticamente dependiendo del nivel y período seleccionado.</p>
-        <p>En la parte superior de la hoja visualizará la cantidad de planillas exactas que debe cargar en la plataforma oficial.</p>
-        <div class="img-container">
-            <img src="paso3.png" alt="Vista de la hoja Aprende BA y cantidad de planillas">
-        </div>
-    </div>
-
-    <div class="slide">
-        <h2>4. Aclaración sobre Sincronización</h2>
+        <h2>4. Elegir nivel y bimestre en la pestaña "AprendeBA"</h2>
+        <p>Abra la pestaña <strong>"AprendeBA"</strong>.</p>
+        <ul>
+            <li>Arriba de todo se indica <strong>cuántas planillas</strong> debe cargar en la plataforma y <strong>para qué niveles</strong>.</li>
+            <li>En el recuadro amarillo <strong>"SELECCIONE NIVEL Y BIMESTRE A COMPLETAR"</strong>, elija el nivel y el bimestre.</li>
+            <li>La hoja muestra los alumnos de ese nivel y los datos para buscar la planilla en la plataforma.</li>
+        </ul>
         <div class="info-box">
-            <p><strong>Uso de la herramienta:</strong></p>
-            <p>La hoja "Aprende BA" de Drive es solo una guía visual para facilitarle la carga posterior.</p>
-            <p>El hecho de completar la hoja del Drive <strong>NO</strong> significa que la plataforma Aprende BA se cargue automáticamente. La carga final en el sistema es manual.</p>
+            <p><strong>Si tiene más de una planilla:</strong> haga la carga completa (pasos 4 a 10) para un nivel, y después repítala eligiendo el siguiente nivel en el recuadro amarillo.</p>
+        </div>
+        <div class="img-container">
+            <img src="paso3.png" alt="Pestaña AprendeBA con la cantidad de planillas y el selector de nivel y bimestre">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>5. Roles en la Plataforma Aprende BA</h2>
-        <p>Para poder ingresar calificaciones, debe tener asignados los roles correctos en el sistema.</p>
-        <p>Al iniciar sesión, asegúrese de seleccionar el recuadro: <strong>Docente > Secundario</strong>.</p>
+        <h2>5. Cómo leer la pestaña "AprendeBA"</h2>
+        <p>La lista de alumnos de esta pestaña aparece en el mismo orden que en la plataforma. Cada fila le indica qué hacer:</p>
+        <ul>
+            <li>Filas en verde con <span class="marca marca-verde">&lt;-- NO COMPLETAR</span>: ese alumno <strong>no es suyo</strong>. No le cargue nada en la plataforma.</li>
+            <li>Filas con <span class="marca marca-gris">( califica otra comision )</span>: ese alumno es calificado por otro docente. No le cargue nada en la plataforma.</li>
+            <li>Filas con datos: son sus alumnos. Cargue en la plataforma exactamente lo que figura en las columnas:
+                <ul>
+                    <li><strong>PPI:</strong> lo indicado en la planilla (normalmente <strong>NO</strong>).</li>
+                    <li><strong>Valoración:</strong> la planilla indica que debe escribir al menos un carácter.</li>
+                    <li><strong>Calificación:</strong> la nota que figura en la planilla.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>6. Ingresar a la plataforma Aprende BA</h2>
+        <p>Al iniciar sesión, seleccione el recuadro: <strong>Docente &gt; Secundario</strong>.</p>
+        <p>Si no aparece ese rol, siga el tutorial <a href="roles.html">Gestión de Roles</a>.</p>
         <div class="img-container">
             <img src="paso5.png" alt="Selección del rol Docente Secundario">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>6. Sección de Calificaciones</h2>
+        <h2>7. Sección de Calificaciones</h2>
         <p>Una vez dentro de la plataforma, diríjase al menú lateral izquierdo y haga clic en la sección <strong>Calificaciones</strong> (resaltada en verde).</p>
         <div class="img-container">
             <img src="paso6.png" alt="Menú lateral de la plataforma mostrando Calificaciones">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>7. Parámetros de Búsqueda</h2>
-        <p>Seleccione los filtros correspondientes para encontrar su curso:</p>
+        <h2>8. Buscar la planilla</h2>
+        <p>Copie en los filtros de la plataforma <strong>exactamente</strong> los datos que muestra la pestaña "AprendeBA" en la fila <strong>Año / Sección / Período / Espacio curricular</strong>:</p>
         <ul>
-            <li>Período (Bimestre correspondiente)</li>
-            <li>Nivel / Año</li>
-            <li>Sección / División</li>
-            <li>Espacio Curricular (Materia)</li>
+            <li><strong>Período:</strong> el bimestre (arriba a la izquierda).</li>
+            <li><strong>Año:</strong> por ejemplo, "4to año".</li>
+            <li><strong>Sección:</strong> por ejemplo, "4to año Noche Simple NIVEL IV NES".</li>
+            <li><strong>Espacio curricular:</strong> su materia.</li>
         </ul>
         <div class="img-container">
             <img src="paso7.png" alt="Filtros de búsqueda en la sección de calificaciones">
+            <p class="img-hint">Toque la imagen para ampliarla</p>
         </div>
     </div>
 
     <div class="slide">
-        <h2>8. Carga Final de Notas</h2>
-        
+        <h2>9. Cargar las notas</h2>
+
         <div class="danger-box">
-            <div style="display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f5c6cb; padding-bottom: 10px; width: 100%; justify-content: center;">
-                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                <h3 style="color: #e74c3c; margin: 0; font-size: 22px;">¡MUY IMPORTANTE!: Lea antes de confirmar</h3>
+            <div class="danger-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <h3>¡MUY IMPORTANTE!: Lea antes de cargar</h3>
             </div>
 
-            <div class="img-container" style="margin-top: 10px;">
-                <img src="error.png" alt="Ejemplo de error en carga de notas">
+            <div style="width: 100%; padding: 0 10px; box-sizing: border-box;">
+                <p style="margin-top: 0;">
+                    Cargue <strong>solamente</strong> las notas de los alumnos que tienen datos en la pestaña "AprendeBA" y <strong>no asigne notas a alumnos que no le correspondan</strong> (filas marcadas con "NO COMPLETAR" o "califica otra comision"). Utilice siempre esa pestaña como referencia.
+                </p>
             </div>
 
-            <div style="width: 100%; padding: 0 10px;">
-                <p style="font-size: 17px; line-height: 1.6; color: #333; margin-bottom: 15px;">
-                    Cargue exclusivamente las notas de los alumnos que figuran en su planilla de Drive y <strong>no asigne notas a alumnos que no le correspondan</strong>. Utilice siempre la hoja "Aprende BA" como referencia.
-                </p>
-                <p style="font-size: 16px; line-height: 1.6; color: #721c24; background: #f8d7da; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin: 0;">
-                    En caso de calificar por error a un alumno que no corresponde, poner <strong>NO</strong> en <strong>PPI</strong> y elegir el <strong>Guión</strong> del menú desplegable de notas para permitir el guardado y cierre de la planilla.
+            <div class="img-container" style="margin-top: 0;">
+                <img src="error.png" alt="Corrección de un alumno calificado por error: PPI en No y guion en Calificación">
+                <p class="img-hint">Toque la imagen para ampliarla</p>
+            </div>
+
+            <div style="width: 100%; padding: 0 10px; box-sizing: border-box;">
+                <p class="danger-note">
+                    En caso de calificar por error a un alumno que no corresponde, poner <strong>No</strong> en <strong>PPI</strong> y elegir el <strong>guion (-)</strong> del menú desplegable de Calificación para permitir el guardado y cierre de la planilla.
                 </p>
             </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2>10. Guardar y cerrar</h2>
+        <ol>
+            <li>Revise que cada alumno cargado coincida con la pestaña "AprendeBA".</li>
+            <li>Presione <strong>Guardar</strong>.</li>
+            <li>Presione <strong>Cerrar Calificaciones</strong>.</li>
+        </ol>
+        <div class="info-box">
+            <p><strong>¿Tiene más planillas?</strong> Vuelva al <a href="#" onclick="irASlide(3); return false;">paso 4</a>, elija el siguiente nivel en el recuadro amarillo de la pestaña "AprendeBA" y repita la carga.</p>
         </div>
     </div>
 
     <div class="controls">
         <button id="prevBtn" onclick="cambiarSlide(-1)" disabled>Anterior</button>
-        <span id="counter">1 / 8</span>
+        <span id="counter">1 / 10</span>
         <button id="nextBtn" onclick="cambiarSlide(1)">Siguiente</button>
     </div>
+</div>
+
+<div class="lightbox" id="lightbox" title="Cerrar">
+    <img id="lightboxImg" src="" alt="">
 </div>
 
 <script>
@@ -287,28 +402,65 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const counter = document.getElementById('counter');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
 
     function actualizarControles() {
         slides.forEach((slide, index) => {
             slide.classList.remove('active');
-            if(index === slideActual) slide.classList.add('active');
+            if (index === slideActual) slide.classList.add('active');
         });
         prevBtn.disabled = slideActual === 0;
         nextBtn.disabled = slideActual === slides.length - 1;
         counter.innerText = (slideActual + 1) + " / " + slides.length;
+        window.scrollTo(0, 0);
     }
 
     function cambiarSlide(direccion) {
-        slideActual += direccion;
-        if (slideActual < 0) slideActual = 0;
-        if (slideActual >= slides.length) slideActual = slides.length - 1;
+        irASlide(slideActual + direccion);
+    }
+
+    function irASlide(indice) {
+        slideActual = Math.max(0, Math.min(slides.length - 1, indice));
         actualizarControles();
     }
 
+    // Ampliar imágenes
+    document.querySelectorAll('.img-container img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+    lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+    // Teclado
     document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('open')) {
+            if (e.key === 'Escape') lightbox.classList.remove('open');
+            return;
+        }
         if (e.key === 'ArrowRight') cambiarSlide(1);
         if (e.key === 'ArrowLeft') cambiarSlide(-1);
     });
+
+    // Deslizar en celulares
+    let toqueX = null, toqueY = null;
+    document.addEventListener('touchstart', (e) => {
+        if (lightbox.classList.contains('open') || e.touches.length !== 1) { toqueX = null; return; }
+        toqueX = e.touches[0].clientX;
+        toqueY = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+        if (toqueX === null) return;
+        const dx = e.changedTouches[0].clientX - toqueX;
+        const dy = e.changedTouches[0].clientY - toqueY;
+        toqueX = null;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            cambiarSlide(dx < 0 ? 1 : -1);
+        }
+    }, { passive: true });
 </script>
 </body>
 </html>
